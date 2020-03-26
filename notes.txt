@@ -1,0 +1,128 @@
+
+https://www.allordslist.com/ > 20200301-all-ords-updated.csv
+https://www.asx20list.com/ > 20200301-asx20.csv
+https://www.asx50list.com/ > 20200301-asx50.csv
+https://www.asx100list.com/ > 20200301-asx100.csv
+https://www.asx200list.com/ > 20200301-asx200.csv
+https://www.asx300list.com/ > 20200301-asx300.csv
+
+#standard column names
+Code	Company	Sector	Market Cap	Weight(%)
+
+pip install yahoo-finance
+
+
+#setup
+D:\2020\coding\stock_analysis
+ubuntu
+cd /mnt/d/2020/coding/stock_analysis
+
+conda deactivate
+deactivate
+
+ quick test for default version of python
+which python3
+python3 --version
+python3 -m venv env
+source env/bin/activate
+
+(env)$
+which python3
+which python
+python3 --version
+Python 3.6.9
+python --version
+Python 3.6.9
+
+which pip
+which pip3
+pip --version
+pip3 --version
+ should show bkah/python3.6/site-packages (python 3.6) for both
+
+setup .gitignore
+
+now install packages required
+
+pip3 install yfinance
+pip3 install lxml
+pip3 install pandas
+pip3 install html5lib
+pip3 install beautifulsoup4
+pip3 install yahoofinancials
+https://pypi.org/project/pandas/
+https://pypi.org/project/yfinance/
+
+python3
+#------------------------------------
+import yfinance as yf
+msft = yf.Ticker("MSFT")
+# get stock info
+msft.info
+#------------------------------------
+
+load .csv file using pandas (best tool for csv plus will be using dataframes a lot)
+
+python3
+#------------------------------------
+import pandas as pd
+data = pd.read_csv("data/20200301-asx300.csv")
+data.shape
+data.head()
+data.columns=["Code","Company","Sector","Market","Cap", "Weight(%)"]
+data = data[["Code","Company"]]
+#------------------------------------
+NBB: only first two columns are reliable.
+
+#create the database
+create_db.py
+
+
+#retrieve data from .csv file, populate database
+
+#------------------------------------
+import pandas as pd
+data = pd.read_csv("data/singapore_sti.csv")
+data.shape
+data.head()
+#------------------------------------
+
+
+https://github.com/ranaroussi/yfinance
+
+
+https://towardsdatascience.com/a-comprehensive-guide-to-downloading-stock-prices-in-python-2cd93ff821d4
+
+https://github.com/PacktPublishing/Python-for-Finance-Cookbook
+
+
+https://en.wikipedia.org/wiki/Korea_Exchange#Traded_Instruments
+https://en.wikipedia.org/wiki/KOSPI > ^KS11
+https://en.wikipedia.org/wiki/KOSDAQ > ^KOSDAQ
+https://en.wikipedia.org/wiki/BSE_SENSEX > ^BSESN
+
+
+FTSE 100 > ^FTSE
+FTSE 250 > ^FTMC
+FTSE 350 > ^FTLC
+FTSE AllShare > ^FTAS
+FTSE AIM UK 50 Index > AIM5.L
+FTSE AIM 100 INDEX > AIM1.L
+FTSE AIM All-Share > ^FTAI
+FTSE MID 250 > ^FTMC
+FTSE 350 High Yield > HIX.L
+FTSE 350 Low Yield > LIX.L
+FTSE 350 > ^FTLC
+FTSE All-Share > ^FTAS
+
+FTSE techMARK Focus > ^FTT1X
+FTSE techMARK mediscience > ^FTTMS1
+FTSE techMARK All-Share > ^FTTASX
+FTSE SmallCap > ^FTSC
+FTSE Eurotop 300 > 3EC.FGI
+
+FTSE ORB Index
+FTSE ORB Financials Index
+FTSE ORB Non-Financials Index
+FTSE ORB Under 5Y Until Maturity Index
+FTSE ORB Over 5Y Until Maturity Index
