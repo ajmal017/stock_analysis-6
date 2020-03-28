@@ -1,0 +1,15 @@
+
+https://github.com/maxitron93/asx_options
+pip install Scrapy
+pip install beautifulsoup4
+git clone https://github.com/maxitron93/asx_options.git
+cd asx_options
+python -m scrapy crawl asx_spider
+python parser.py
+
+error
+$ python parser.py
+Traceback (most recent call last):
+File "parser.py", line 12, in <module>
+options_data = options_table.find_all("td")
+AttributeError: 'NoneType' object has no attribute 'find_all'

@@ -1,4 +1,6 @@
 env/
+win_env/
 *.pyc
 __pycache__/
 *.db
+data_collected/

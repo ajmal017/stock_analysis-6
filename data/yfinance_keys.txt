@@ -1,0 +1,277 @@
+zip
+sector
+fullTimeEmployees
+longBusinessSummary
+city
+phone
+state
+country
+companyOfficers
+website
+maxAge
+address1
+fax
+industry
+address2
+previousClose
+regularMarketOpen
+twoHundredDayAverage
+trailingAnnualDividendYield
+payoutRatio
+volume24Hr
+regularMarketDayHigh
+navPrice
+averageDailyVolume10Day
+totalAssets
+regularMarketPreviousClose
+fiftyDayAverage
+trailingAnnualDividendRate
+open
+toCurrency
+averageVolume10days
+expireDate
+yield
+algorithm
+dividendRate
+exDividendDate
+beta
+circulatingSupply
+startDate
+regularMarketDayLow
+priceHint
+currency
+trailingPE
+regularMarketVolume
+lastMarket
+maxSupply
+openInterest
+marketCap
+volumeAllCurrencies
+strikePrice
+averageVolume
+priceToSalesTrailing12Months
+dayLow
+ask
+ytdReturn
+askSize
+volume
+fiftyTwoWeekHigh
+forwardPE
+fromCurrency
+fiveYearAvgDividendYield
+fiftyTwoWeekLow
+bid
+tradeable
+dividendYield
+bidSize
+dayHigh
+exchange
+shortName
+longName
+exchangeTimezoneName
+exchangeTimezoneShortName
+isEsgPopulated
+gmtOffSetMilliseconds
+quoteType
+symbol
+messageBoardId
+market
+annualHoldingsTurnover
+enterpriseToRevenue
+beta3Year
+profitMargins
+enterpriseToEbitda
+52WeekChange
+morningStarRiskRating
+forwardEps
+revenueQuarterlyGrowth
+sharesOutstanding
+fundInceptionDate
+annualReportExpenseRatio
+bookValue
+sharesShort
+sharesPercentSharesOut
+fundFamily
+lastFiscalYearEnd
+heldPercentInstitutions
+netIncomeToCommon
+trailingEps
+lastDividendValue
+SandP52WeekChange
+priceToBook
+heldPercentInsiders
+nextFiscalYearEnd
+mostRecentQuarter
+shortRatio
+sharesShortPreviousMonthDate
+floatShares
+enterpriseValue
+threeYearAverageReturn
+lastSplitDate
+lastSplitFactor
+legalType
+morningStarOverallRating
+earningsQuarterlyGrowth
+dateShortInterest
+pegRatio
+lastCapGain
+shortPercentOfFloat
+sharesShortPriorMonth
+category
+fiveYearAverageReturn
+regularMarketPrice
+logo_url
+
+
+zip <class 'str'>
+sector <class 'str'>
+fullTimeEmployees <class 'int'>
+longBusinessSummary <class 'str'>
+city <class 'str'>
+phone <class 'str'>
+state <class 'str'>
+country <class 'str'>
+companyOfficers <class 'list'>
+website <class 'str'>
+maxAge <class 'int'>
+address1 <class 'str'>
+industry <class 'str'>
+previousClose <class 'float'>
+regularMarketOpen <class 'float'>
+twoHundredDayAverage <class 'float'>
+trailingAnnualDividendYield <class 'float'>
+payoutRatio <class 'float'>
+volume24Hr <class 'NoneType'>
+regularMarketDayHigh <class 'float'>
+navPrice <class 'NoneType'>
+averageDailyVolume10Day <class 'int'>
+totalAssets <class 'NoneType'>
+regularMarketPreviousClose <class 'float'>
+fiftyDayAverage <class 'float'>
+trailingAnnualDividendRate <class 'float'>
+open <class 'float'>
+toCurrency <class 'NoneType'>
+averageVolume10days <class 'int'>
+expireDate <class 'NoneType'>
+yield <class 'NoneType'>
+algorithm <class 'NoneType'>
+dividendRate <class 'float'>
+exDividendDate <class 'int'>
+beta <class 'float'>
+circulatingSupply <class 'NoneType'>
+startDate <class 'NoneType'>
+regularMarketDayLow <class 'float'>
+priceHint <class 'int'>
+currency <class 'str'>
+trailingPE <class 'float'>
+regularMarketVolume <class 'int'>
+lastMarket <class 'NoneType'>
+maxSupply <class 'NoneType'>
+openInterest <class 'NoneType'>
+marketCap <class 'int'>
+volumeAllCurrencies <class 'NoneType'>
+strikePrice <class 'NoneType'>
+averageVolume <class 'int'>
+priceToSalesTrailing12Months <class 'float'>
+dayLow <class 'float'>
+ask <class 'int'>
+ytdReturn <class 'NoneType'>
+askSize <class 'int'>
+volume <class 'int'>
+fiftyTwoWeekHigh <class 'float'>
+forwardPE <class 'float'>
+fromCurrency <class 'NoneType'>
+fiveYearAvgDividendYield <class 'float'>
+fiftyTwoWeekLow <class 'float'>
+bid <class 'float'>
+tradeable <class 'bool'>
+dividendYield <class 'float'>
+bidSize <class 'int'>
+dayHigh <class 'float'>
+exchange <class 'str'>
+shortName <class 'str'>
+longName <class 'str'>
+exchangeTimezoneName <class 'str'>
+exchangeTimezoneShortName <class 'str'>
+isEsgPopulated <class 'bool'>
+gmtOffSetMilliseconds <class 'str'>
+quoteType <class 'str'>
+symbol <class 'str'>
+messageBoardId <class 'str'>
+market <class 'str'>
+annualHoldingsTurnover <class 'NoneType'>
+enterpriseToRevenue <class 'float'>
+beta3Year <class 'NoneType'>
+profitMargins <class 'float'>
+enterpriseToEbitda <class 'float'>
+52WeekChange <class 'float'>
+morningStarRiskRating <class 'NoneType'>
+forwardEps <class 'float'>
+revenueQuarterlyGrowth <class 'NoneType'>
+sharesOutstanding <class 'int'>
+fundInceptionDate <class 'NoneType'>
+annualReportExpenseRatio <class 'NoneType'>
+bookValue <class 'float'>
+sharesShort <class 'int'>
+sharesPercentSharesOut <class 'float'>
+fundFamily <class 'NoneType'>
+lastFiscalYearEnd <class 'int'>
+heldPercentInstitutions <class 'float'>
+netIncomeToCommon <class 'int'>
+trailingEps <class 'float'>
+lastDividendValue <class 'NoneType'>
+SandP52WeekChange <class 'float'>
+priceToBook <class 'float'>
+heldPercentInsiders <class 'float'>
+nextFiscalYearEnd <class 'int'>
+mostRecentQuarter <class 'int'>
+shortRatio <class 'float'>
+sharesShortPreviousMonthDate <class 'int'>
+floatShares <class 'int'>
+enterpriseValue <class 'int'>
+threeYearAverageReturn <class 'NoneType'>
+lastSplitDate <class 'int'>
+lastSplitFactor <class 'str'>
+legalType <class 'NoneType'>
+morningStarOverallRating <class 'NoneType'>
+earningsQuarterlyGrowth <class 'float'>
+dateShortInterest <class 'int'>
+pegRatio <class 'float'>
+lastCapGain <class 'NoneType'>
+shortPercentOfFloat <class 'float'>
+sharesShortPriorMonth <class 'int'>
+category <class 'NoneType'>
+fiveYearAverageReturn <class 'NoneType'>
+regularMarketPrice <class 'float'>
+logo_url <class 'str'>
+
+
+https://finance.yahoo.com/quote/ALK/key-statistics?p=ALK
+
+msft.info['shortRatio']                   > Short Ratio (Mar 12, 2020)
+msft.info['sharesShortPreviousMonthDate']
+msft.info['sharesShort']                  > Shares Short (Mar 12, 2020)
+msft.info['dateShortInterest']
+msft.info['shortPercentOfFloat']          > Short % of Float (Mar 12, 2020)
+msft.info['sharesShortPriorMonth']        > Shares Short (prior month Feb 13, 2020)
+
+https://www.fool.com/knowledge-center/what-is-a-short-ratio.aspx
+
+
+
+Dividends & Splits
+msft.info['payoutRatio']
+msft.info['trailingAnnualDividendYield']
+msft.info['trailingAnnualDividendRate']
+msft.info['dividendRate']
+msft.info['exDividendDate']
+msft.info['fiveYearAvgDividendYield']
+msft.info['dividendYield']
+msft.info['yield']
+
+threeYearAverageReturn
+fiveYearAverageReturn
+profitMargins
+
+forwardPE
+forwardEps

@@ -25,7 +25,7 @@ def create_connection(db_file):
         print(e)
     return conn
 
-def get_prices(database, stock_codes_filename, dest_table):
+def get_codes(database, stock_codes_filename, dest_table):
     conn = create_connection(database)
     # create tables
     if conn is not None:
@@ -61,8 +61,8 @@ def get_prices(database, stock_codes_filename, dest_table):
 
 
 def main():
-    get_prices("asx_data.db", "data/commodities_futures.csv", "commodity_futures")
-    get_prices("asx_data.db", "data/global_indices.csv", "indices")
+    get_codes("asx_data.db", "data/commodities_futures.csv", "commodity_futures")
+    get_codes("asx_data.db", "data/global_indices.csv", "indices")
 
 
 

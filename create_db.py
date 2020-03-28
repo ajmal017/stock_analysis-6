@@ -33,7 +33,6 @@ def create_table(conn, create_table_sql):
 
 def main():
     database = "asx_data.db"
-
     sql_create_asx300_table = """ CREATE TABLE IF NOT EXISTS asx300 (
                                         stock_code text PRIMARY KEY,
                                         stock_name text NOT NULL
@@ -47,7 +46,16 @@ def main():
                                         stock_name text NOT NULL
                                     ); """
 
-
+    sql_create_price_deltas = """ CREATE TABLE IF NOT EXISTS price_deltas (
+                                        stock_code text,
+                                        min_price real,
+                                        min_date_time timestamp,
+                                        max_price real,
+                                        max_date_time timestamp,
+                                        start_period timestamp,
+                                        end_period timestamp,
+                                        PRIMARY KEY(stock_code, start_period, end_period)
+                                    ); """
 
     sql_create_stock_price_table = """ CREATE TABLE IF NOT EXISTS stock_price_yfinance (
                                         stock_code text,
@@ -62,8 +70,6 @@ def main():
                                         PRIMARY KEY(stock_code, date_time)
                                     ); """
 
-
-
     # create a database connection
     conn = create_connection(database)
 
@@ -74,6 +80,7 @@ def main():
         create_table(conn, sql_create_stock_price_table)
         create_table(conn, sql_create_commodity_futures_table)
         create_table(conn, sql_create_indices_table)
+        create_table(conn, sql_create_price_deltas)
     else:
         print("Error! cannot create the database connection.")
 

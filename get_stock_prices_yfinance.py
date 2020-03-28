@@ -1,15 +1,18 @@
 import datetime
 import yfinance as yf
+pip install pyasx
 msft = yf.Ticker("CBA.AX")
 msft = yf.Ticker("^KS11")
 msft = yf.Ticker("^HSI")
 msft = yf.Ticker("^BSESN")
 msft = yf.Ticker("^KOSDAQ")
+msft = yf.Ticker("ALK")
+
 # get stock info
 print(msft.info)
 print(msft.info.keys())
 for key in msft.info.keys():
-    print (key, msft.info[key])
+    print (key, type(msft.info[key]), msft.info[key])
 
 msft.info['longName']
 msft.info['open']
@@ -18,6 +21,23 @@ msft.info['lastMarket']
 msft.info['volume24Hr']
 msft.info['navPrice']
 msft.info['bookValue']
+msft.info['tradeable'] #stockmarket open or closed at time of call? always False?
+msft.info['dividendYield']#None
+msft.info['bookValue']
+msft.info['sharesShort']
+msft.info['heldPercentInstitutions']
+msft.info['heldPercentInsiders']
+
+msft.info['shortRatio']
+msft.info['sharesShortPreviousMonthDate']
+msft.info['sharesShort']
+msft.info['dateShortInterest']
+msft.info['shortPercentOfFloat']
+msft.info['sharesShortPriorMonth']
+
+
+tradeable
+dividendYield
 
 
 msft.history(period="max")
