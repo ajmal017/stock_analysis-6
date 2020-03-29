@@ -37,6 +37,10 @@ def main():
                                         stock_code text PRIMARY KEY,
                                         stock_name text NOT NULL
                                     ); """
+    sql_create_yfinance_CurrencyEX_table = """ CREATE TABLE IF NOT EXISTS currencyEX (
+                                        currencyex_code text PRIMARY KEY,
+                                        currencyex_name text NOT NULL
+                                    ); """
     sql_create_commodity_futures_table = """ CREATE TABLE IF NOT EXISTS commodity_futures (
                                         stock_code text PRIMARY KEY,
                                         stock_name text NOT NULL
@@ -81,6 +85,7 @@ def main():
         create_table(conn, sql_create_commodity_futures_table)
         create_table(conn, sql_create_indices_table)
         create_table(conn, sql_create_price_deltas)
+        create_table(conn, sql_create_yfinance_CurrencyEX_table)
     else:
         print("Error! cannot create the database connection.")
 

@@ -1,10 +1,12 @@
 
 #setup
 D:\2020\coding\stock_analysis
-ubuntu
+#in cmd window ubuntu
 cd /mnt/d/2020/coding/stock_analysis
-
 conda deactivate
+source env/bin/activate
+
+
 deactivate
 
  quick test for default version of python

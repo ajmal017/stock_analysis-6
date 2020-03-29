@@ -23,38 +23,37 @@ def create_connection(db_file):
     return conn
 
 
-def main():
-    database = "asx_data.db"
-    start = datetime.datetime(2020, 3, 1, 0, 0)
-    end   = datetime.datetime(2020, 3, 24, 0, 0)
-
+def get_prices(database, start, end, tablename, code_suffix):
     # create a database connection
     conn = create_connection(database)
     # create tables
     if conn is not None:
         #get list of stock codes from db
-        sql = "SELECT * FROM asx300"
+        tablename = "currencyEX"
+        sql = "SELECT * FROM "+tablename
         cursor=conn.cursor()
         cursor.execute(sql)
-        result = cursor.fetchall()
-        for i in result:
+        results_stockcodes = cursor.fetchall()
+        for i in results_stockcodes:
             print(i[0], i[1])
             #retrieve data with yfinance for each stock code.
-            stock_code = i[0]+".AX"
+            stock_code = i[0]+code_suffix
             print("stock_code:", stock_code)
             try:
                 msft = yf.Ticker(stock_code)
                 print("msft:", msft)
-                print(msft.info)
+                #print(msft.info)
+                #for key in msft.info.keys():
+                #    print(key, msft.info[key])
                 #print(msft.info.keys())
                 #print("bookValue : ", msft.info['bookValue'])
                 #print("volume24Hr = ",msft.info['previousClose'])
                 #nbb: if using interval="1h" datetime returned is all same time for the same day. weird bug?
-                result = msft.history(start = start, end = end, interval="60m")
-                print("history > result\n", result)
+                results_history = msft.history(start = start, end = end, interval="60m")
+                print("history > result\n", results_history)
                 #print(type(result)) #pandas.dataframe
                 cursor=conn.cursor
-                for i,row in result.iterrows():
+                for i,row in results_history.iterrows():
                     print("i:", i)
                     print("type(i):", type(i))
                     print("type(row):", type(row))
@@ -71,15 +70,31 @@ def main():
                     values = [stock_code, str(i)]+values
                     print("after adding stock code + time, type(values):", type(values))
                     print(values)
-                    conn.execute(sql, tuple(values))
-                conn.commit()
-
+                    try:
+                        conn.execute(sql, tuple(values))
+                    except Exception as error:
+                        print("error inserting data: ", str(error))
+                    conn.commit()
             except Exception as error:
-                print("error retrieving yfinance data: ", str(error))
-            else:
-                print("yfinance data retrieved.")
+                    print("error retrieving yfinance data: ", str(error))
+    else:
+        print("yfinance data retrieved.")
+            # store data in db
 
-        # store data in db
+
+def main():
+    database = "asx_data.db"
+    #start = datetime.datetime(2020, 3, 25, 0, 0)
+    #end   = datetime.datetime(2020, 3, 26, 20, 0)
+
+    end = datetime.datetime.now()
+    start = end - datetime.timedelta(hours=24)
+    #now trim start to get start of day for previous day.
+    start = start.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    get_prices(database, start, end, "currencyEX", "")
+
+
 
 if __name__ == '__main__':
     main()

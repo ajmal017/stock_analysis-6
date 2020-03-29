@@ -87,7 +87,7 @@ def main():
     end = datetime.datetime.now()
     start = end - datetime.timedelta(hours=24)
     #now trim start to get start of day for previous day.
-    start.replace(hour=0, minute=0, second=0, microsecond=0)
+    start = start.replace(hour=0, minute=0, second=0, microsecond=0)
 
     get_prices(database, start, end, "asx300", ".AX")
     #start = datetime.datetime(2020, 3, 1,  20, 0)
