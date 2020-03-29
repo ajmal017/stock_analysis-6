@@ -7,6 +7,7 @@ import io
 import csv
 from werkzeug.wrappers import Response
 from flask import make_response
+from flask_csv import send_csv
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
@@ -66,14 +67,61 @@ def get_stock_data(stock_code):
             results = cursor.fetchall()
             output = io.StringIO()
             writer = csv.writer(output)
-            #line = ['stock_code, date_time, Open, High, Low, Close, Volume, Dividends, Stock_Splits']
-            #writer.writerow(line)
+            line = ['stock_code', 'date_time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock_Splits']
+            writer.writerow(line)
             for result in results:
                 print(result)
                 writer.writerow(result)
             output.seek(0)
             conn.close()
             #try this
+            output = make_response(output.getvalue())
+            output.headers["Content-Disposition"] = "attachment; filename=output.csv"
+            output.headers["Content-type"] = "text/csv"
+            return output
+            #return Response(output, mimetype="text/csv", headers={"Content-Disposition":"attachment;filename=output.csv"})
+    except Exception as e:
+        print("error in route /api/stock_code")
+        print(e)
+        return "error"
+
+
+
+@app.route('/api2/<stock_code>')
+def get_stock_data2(stock_code):
+    print("route @app.route('/api2/stock_code')")
+    print("stock_code=", stock_code)
+    try:
+        # create a database connection
+        database = "../asx_data.db"
+        print("connecting to database:", database)
+        conn = create_connection(database)
+        print("connected to database:", database)
+        # create tables
+        if conn is not None:
+            sql = "SELECT * FROM stock_price_yfinance WHERE stock_code = ?"
+            print("sql=:", sql)
+            cursor = conn.cursor()
+            cursor.execute(sql, (stock_code, ) )
+            results = cursor.fetchall()
+            csv_list = []
+            colnames = ['stock_code', 'date_time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock_Splits']
+            for result in results:
+                print("result:", result)
+                dictionary = dict(zip(colnames, list(result) ))
+                print("dictionary:", dictionary)
+            #writer.writerow(line)
+            conn.close()
+            #try this
+            return "sql completed"
+
+            '''
+            colnames = ['stock_code, date_time, Open, High, Low, Close, Volume, Dividends, Stock_Splits']
+            result=list( ('BHP.AX', '2020-03-26 15:07:58+11:00', 31.25, 31.25, 31.25, 31.25, 0, 0.0, 0.0))
+            '''
+
+
+
             output = make_response(output.getvalue())
             output.headers["Content-Disposition"] = "attachment; filename=output.csv"
             output.headers["Content-type"] = "text/csv"
