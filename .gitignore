@@ -4,3 +4,4 @@ win_env/
 __pycache__/
 *.db
 data_collected/
+asx_announcements/

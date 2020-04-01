@@ -147,3 +147,6 @@ ITG.AX|1.32432432432432|0.43|0.185
 CGF.AX|1.32352941176471|9.085|3.91
 
 ---------------------
+
+headless chrome info might be useful ?
+https://medium.com/@moungpeter/how-to-automate-downloading-files-using-python-selenium-and-headless-chrome-9014f0cdd196

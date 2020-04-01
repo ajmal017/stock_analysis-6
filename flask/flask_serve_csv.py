@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import render_template
+from flask import request
+
 import logging
 import sqlite3
 from sqlite3 import Error
@@ -33,10 +35,19 @@ def home():
     # We hardcode some information to be returned
     return "hello world"
 
-@app.route('/chart')
+@app.route('/chart', methods=['GET', 'POST'])
 def chart():
     print("@app.route('/chart')")
-    return render_template('load_csv.html')
+    #http://10.1.1.1:5000/chart?stock_code=foo&start_date=bar&end_date=blah
+    stock_code = request.args.get('stock_code')
+    print("stock_code:", stock_code)
+    start_date = request.args.get('start_date')
+    print("start_date:", start_date)
+    end_date = request.args.get('end_date')
+    print("end_date:", end_date)
+    values = {'stock_code':stock_code, 'start_date':start_date, 'end_date':end_date}
+    print("values:", values)
+    return render_template('load_csv.html', values=values)
 
 # We establish a Flask route so that we can serve HTTP traffic on that route
 @app.route('/test1')
@@ -48,10 +59,22 @@ def weather():
 def weather_date(date):
     return "date="+date
 
-@app.route('/api/<stock_code>')
-def get_stock_data(stock_code):
-    print("route @app.route('/api/stock_code')")
-    print("stock_code=", stock_code)
+@app.route('/form')
+def form():
+    form = getPricesForm()
+    return render_template('getPrices.html', title='getPrices', form=form)
+
+@app.route('/api', methods=['GET', 'POST'])
+def get_stock_data():
+    print("route @app.route('/api')")
+    stock_code = request.args.get('stock_code')
+    print("stock_code:", stock_code)
+    start_date = request.args.get('start_date')
+    print("start_date:", start_date)
+    end_date = request.args.get('end_date')
+    print("end_date:", end_date)
+    values = {'stock_code':stock_code, 'start_date':start_date, 'end_date':end_date}
+    print("values:", values)
     try:
         # create a database connection
         database = "../asx_data.db"
